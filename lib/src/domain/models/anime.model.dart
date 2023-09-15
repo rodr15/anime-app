@@ -11,7 +11,7 @@ part 'anime.model.freezed.dart';
 class Anime with _$Anime {
   factory Anime({
     required int id,
-    required String tittle,
+    required String title,
     required String description,
     required AnimeImages images,
     String? trailerUrl,

@@ -1,3 +1,3 @@
-enum AnimeStatus { emission, finished }
+enum AnimeStatus { emission, finished, unknown }
 
-enum AnimeType { tv, anime, manga, movie }
+enum AnimeType { tv, anime, manga, movie, unknown }
