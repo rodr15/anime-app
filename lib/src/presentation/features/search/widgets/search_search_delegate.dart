@@ -8,6 +8,9 @@ import '../controller/search_bloc.bloc.dart';
 import 'anime_search_detail.dart';
 
 class SearchSearchDelegate extends SearchDelegate {
+  SearchSearchDelegate(this.searchBloc);
+  final SearchBloc searchBloc;
+
   Timer? _debounceTimer;
 
   void debouncing({required Function() fn, int waitForMs = 500}) {
@@ -38,7 +41,7 @@ class SearchSearchDelegate extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     if (query.trim().isEmpty) return const Text('');
     debouncing(
-      fn: () => context.read<SearchBloc>().add(SearchEvent.search(query)),
+      fn: () => searchBloc.add(SearchEvent.search(query)),
     );
     return BlocConsumer<SearchBloc, SearchState>(
       listener: (context, state) {},
@@ -56,7 +59,7 @@ class SearchSearchDelegate extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     if (query.trim().isEmpty) return const Text('');
     debouncing(
-      fn: () => context.read<SearchBloc>().add(SearchEvent.search(query)),
+      fn: () => searchBloc.add(SearchEvent.search(query)),
     );
     return BlocConsumer<SearchBloc, SearchState>(
       listener: (context, state) {},

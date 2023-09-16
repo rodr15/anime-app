@@ -23,7 +23,7 @@ class SearchView extends StatelessWidget {
               onPressed: () {
                 showSearch(
                   context: context,
-                  delegate: SearchSearchDelegate(),
+                  delegate: SearchSearchDelegate(context.read<SearchBloc>()),
                 );
               },
             )
