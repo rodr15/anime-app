@@ -6,11 +6,12 @@ part 'anime_images.jikan.entity.g.dart';
 @freezed
 class AnimeImageEntityJikan with _$AnimeImageEntityJikan {
   factory AnimeImageEntityJikan({
-    @JsonKey(name: 'large_image_url') String? small,
-    @JsonKey(name: 'small_image_url') String? large,
+    @JsonKey(name: 'small_image_url') String? small,
+    @JsonKey(name: 'large_image_url') String? large,
     @JsonKey(name: 'image_url') String? original,
   }) = _AnimeImageEntityJikan;
 
-  factory AnimeImageEntityJikan.fromJson(Map<String, dynamic> json) =>
-      _$AnimeImageEntityJikanFromJson(json);
+  factory AnimeImageEntityJikan.fromJson(Map<String, dynamic> json) {
+    return _$AnimeImageEntityJikanFromJson(json['jpg']);
+  }
 }
