@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/models/anime.enums.dart';
+import '../mapper/anime_status.mapper.dart';
+import '../mapper/anime_type.mapper.dart';
 import 'anime_genres.jikan.entity.dart';
 import 'anime_images.jikan.entity.dart';
 import 'anime_streaming.jikan.entity.dart';
@@ -12,17 +14,17 @@ part 'anime.jikan.entity.g.dart';
 class AnimeEntityJikan with _$AnimeEntityJikan {
   factory AnimeEntityJikan({
     @JsonKey(name: 'mal_id') required int id,
-    required String title,
-    @JsonKey(name: 'synopsis') required String description,
-    required AnimeImageEntityJikan images,
+    @Default('') String? title,
+    @JsonKey(name: 'synopsis', defaultValue: '') String? description,
+    AnimeImageEntityJikan? images,
     String? trailerUrl,
-    required int episodes,
-    @JsonKey(name: 'rating') required String ageRating,
-    required double score,
-    required List<AnimeGenresEntityJikan> genres,
-    required List<AnimeStreamingEntityJikan> streaming,
-    required AnimeStatus status,
-    required AnimeType type,
+    @Default(0) int? episodes,
+    @JsonKey(name: 'rating', defaultValue: '') String? ageRating,
+    @Default(0.0) double? score,
+    List<AnimeGenresEntityJikan>? genres,
+    List<AnimeStreamingEntityJikan>? streaming,
+    @JsonKey(fromJson: AnimeStatusMap.fromString) required AnimeStatus status,
+    @JsonKey(fromJson: AnimeTypeMap.fromString) required AnimeType type,
   }) = _AnimeEntityJikan;
 
   factory AnimeEntityJikan.fromJson(Map<String, dynamic> json) =>
