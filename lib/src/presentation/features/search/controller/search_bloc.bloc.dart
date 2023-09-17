@@ -2,20 +2,20 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/models/anime.model.dart';
-import '../../../../domain/repositories/anime.repository.dart';
+import '../../../../domain/usecases/anime.usecase.dart';
 
 part 'search_bloc.bloc.freezed.dart';
 part 'search_event.bloc.dart';
 part 'search_state.bloc.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  SearchBloc(this._animeRepository) : super(const _Loading()) {
+  SearchBloc(this._animeUseCase) : super(const _Loading()) {
     on<SearchEvent>((event, emit) async {
       await event.when(
         started: () async {
           emit(const _Loading());
           try {
-            final animes = await _animeRepository.getAnimesByWord('');
+            final animes = await _animeUseCase.getAnimesByWord('');
             emit(_Success(animes));
           } catch (e) {
             emit(_Error(e.toString()));
@@ -24,7 +24,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         search: (String search) async {
           emit(const _Loading());
           try {
-            final animes = await _animeRepository.getAnimesByWord(search);
+            final animes = await _animeUseCase.getAnimesByWord(search);
             emit(_Success(animes));
           } catch (e) {
             emit(_Error(e.toString()));
@@ -34,5 +34,5 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     });
   }
 
-  final AnimeRepository _animeRepository;
+  final AnimeUseCase _animeUseCase;
 }
