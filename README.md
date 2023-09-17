@@ -52,3 +52,10 @@ Para descargar y ejecutar este proyecto, siga los siguientes pasos:
 
     ```shell
         flutter run
+
+
+## Cómo realizar los test del proyecto con coverage 
+
+```shell
+   flutter test --coverage
+   genhtml coverage/lcov.info -o coverage/html

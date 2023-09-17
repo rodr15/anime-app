@@ -12,15 +12,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc(this._animeUseCase) : super(const _Loading()) {
     on<SearchEvent>((event, emit) async {
       await event.when(
-        started: () async {
-          emit(const _Loading());
-          try {
-            final animes = await _animeUseCase.getAnimesByWord('');
-            emit(_Success(animes));
-          } catch (e) {
-            emit(_Error(e.toString()));
-          }
-        },
         search: (String search) async {
           emit(const _Loading());
           try {
