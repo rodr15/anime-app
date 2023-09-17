@@ -9,6 +9,6 @@ class AnimeUseCase {
   }
 
   Future<List<Anime>> getSeasonAnime() {
-    return _animeRepository.getAnimesByWord('');
+    return _animeRepository.getSeasonPopularAnime();
   }
 }

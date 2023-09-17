@@ -38,4 +38,31 @@ class AnimeRepositoryJikanImpl implements AnimeRepository {
       throw RequestException.unknown();
     }
   }
+
+  @override
+  Future<List<Anime>> getSeasonPopularAnime() async {
+    const authority = 'api.jikan.moe';
+    const path = '/v4/seasons/now';
+    final uri = Uri.https(authority, path);
+    try {
+      final response = await http.get(uri);
+
+      if (response.statusCode != 200) {
+        getException(response.statusCode);
+      }
+      final Map<String, dynamic> jsonData = json.decode(response.body);
+      final List data = jsonData['data'] ?? [];
+
+      return data
+          .map((animeJson) =>
+              AnimeMapperJikan.toAnime(AnimeEntityJikan.fromJson(animeJson)))
+          .toList();
+    } on RequestException catch (e) {
+      Logger().e(e);
+      rethrow;
+    } catch (e) {
+      Logger().e(e);
+      throw RequestException.unknown();
+    }
+  }
 }
