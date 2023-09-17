@@ -1,5 +1,4 @@
 import '../../../domain/models/anime.model.dart';
-import '../../../domain/models/anime_images.model.dart';
 import '../entity/anime.jikan.entity.dart';
 import 'anime_genres.jikan.mapper.dart';
 import 'anime_images.jikan.mapper.dart';
@@ -11,9 +10,7 @@ class AnimeMapperJikan {
       id: animeEntityJikan.id,
       title: animeEntityJikan.title ?? '',
       description: animeEntityJikan.description ?? '',
-      images: animeEntityJikan.images != null
-          ? AnimeImagesMapperJikan.toAnimeImages(animeEntityJikan.images!)
-          : const AnimeImages(),
+      images: AnimeImagesMapperJikan.toAnimeImages(animeEntityJikan.images),
       episodes: animeEntityJikan.episodes ?? 0,
       ageRating: animeEntityJikan.ageRating ?? '',
       score: animeEntityJikan.score ?? 0.0,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../domain/models/anime.model.dart';
+import '../../../common/widgets/network_image.widget.dart';
 
 class AnimeSearchDetail extends StatelessWidget {
   const AnimeSearchDetail(this.anime, {super.key});
@@ -11,25 +12,7 @@ class AnimeSearchDetail extends StatelessWidget {
       leading: SizedBox(
         height: 100,
         width: 50,
-        child: Image.network(
-          anime.images.small!,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-              ),
-            );
-          },
-          errorBuilder:
-              (BuildContext context, Object exception, StackTrace? stackTrace) {
-            return Image.asset('assets/images/image_not_found.jpg');
-          },
-        ),
+        child: CustomNetworkImage(anime.images.small!),
       ),
       title: Text(anime.title),
     );
