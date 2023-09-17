@@ -16,7 +16,7 @@ class AnimeEntityJikan with _$AnimeEntityJikan {
     @JsonKey(name: 'mal_id') required int id,
     @Default('') String? title,
     @JsonKey(name: 'synopsis', defaultValue: '') String? description,
-    AnimeImageEntityJikan? images,
+    required AnimeImageEntityJikan images,
     String? trailerUrl,
     @Default(0) int? episodes,
     @JsonKey(name: 'rating', defaultValue: '') String? ageRating,

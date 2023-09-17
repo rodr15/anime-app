@@ -11,7 +11,6 @@ class AnimeImageEntityJikan with _$AnimeImageEntityJikan {
     @JsonKey(name: 'image_url') String? original,
   }) = _AnimeImageEntityJikan;
 
-  factory AnimeImageEntityJikan.fromJson(Map<String, dynamic> json) {
-    return _$AnimeImageEntityJikanFromJson(json['jpg']);
-  }
+  factory AnimeImageEntityJikan.fromJson(Map<String, dynamic> json) =>
+      _$AnimeImageEntityJikanFromJson(json['jpg'] as Map<String, dynamic>);
 }
