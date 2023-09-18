@@ -14,7 +14,7 @@ class PopularAnimeList extends StatelessWidget {
       crossAxisCount: 2,
       mainAxisSpacing: 5,
       crossAxisSpacing: 5,
-      childAspectRatio: 0.72,
+      childAspectRatio: 0.6,
       children: animes.map((anime) => AnimePopularView(anime)).toList(),
     );
   }

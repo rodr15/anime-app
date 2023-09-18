@@ -5,7 +5,11 @@ class UserListUseCase {
   UserListUseCase(this._userListRepository);
   final UserListRepository _userListRepository;
 
-  Future<List<Anime>> getFavoriteAnimes() async {
-    return <Anime>[];
+  Stream<List<Anime>> getFavoriteAnimes() {
+    return _userListRepository.getAnimesFavorite();
+  }
+
+  void saveAnimeFavorite(Anime anime) {
+    return _userListRepository.toggleInAnimeList(anime);
   }
 }

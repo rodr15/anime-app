@@ -9,6 +9,7 @@ import 'src/presentation/features/settings/settings_controller.dart';
 import 'src/presentation/features/settings/settings_service.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await setupDependencies();
   Bloc.observer = MyBlocObserver();
   final settingsController = SettingsController(SettingsService());
