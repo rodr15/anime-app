@@ -13,7 +13,7 @@ class UserListUseCase {
     return _userListRepository.getAnimesFavorite();
   }
 
-  void saveAnimeFavorite(Anime anime) {
+  void toggleAnimeInFavoriteList(Anime anime) {
     return _userListRepository.toggleInAnimeList(anime);
   }
 }

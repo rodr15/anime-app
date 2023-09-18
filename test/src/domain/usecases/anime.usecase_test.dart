@@ -17,7 +17,7 @@ void main() {
     animeUseCase = AnimeUseCase(animeRepository);
   });
 
-  group('👀 AnimeUseCase ->', () {
+  group('👤 AnimeUseCase ->', () {
     group('getAnimeByWord -> ', () {
       test('[Throw] Exception', () {
         when(animeRepository.getAnimesByWord(''))
