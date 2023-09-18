@@ -18,13 +18,15 @@ class MyBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
-    logger.w('onChange -- ${bloc.runtimeType}, $change');
+    logger.w(
+        'onChange -- ${bloc.runtimeType}, ${change.currentState.runtimeType} - ${change.nextState.runtimeType}');
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
-    logger.d('onTransition -- ${bloc.runtimeType}, $transition');
+    logger.d(
+        'onTransition -- ${bloc.runtimeType}, ${transition.currentState.runtimeType} - ${transition.nextState.runtimeType}');
   }
 
   @override
