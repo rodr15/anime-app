@@ -12,13 +12,17 @@ class UserListIsarRepositoryImpl implements UserListRepository {
   final Isar _isar;
 
   @override
-  Stream<List<Anime>> getAnimesFavorite() {
-    Query<AnimeEntityIsar> listAnimesEntity =
-        _isar.animeEntityIsars.buildQuery();
+  Stream<List<Anime>> listenAnimesFavorite() {
+    Query<AnimeEntityIsar> favoritesQuery = _isar.animeEntityIsars.buildQuery();
 
-    return listAnimesEntity
-        .watch()
-        .mapList((p0) => AnimeMapperIsar.toAnime(p0));
+    return favoritesQuery.watch().mapList((p0) => AnimeMapperIsar.toAnime(p0));
+  }
+
+  @override
+  Future<List<Anime>> getAnimesFavorite() async {
+    final query = _isar.animeEntityIsars.buildQuery();
+    final favorites = await query.findAll();
+    return favorites.map((e) => AnimeMapperIsar.toAnime(e)).toList();
   }
 
   @override

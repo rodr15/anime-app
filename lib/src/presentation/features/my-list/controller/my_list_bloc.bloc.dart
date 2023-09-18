@@ -10,7 +10,7 @@ part 'my_list_state.bloc.dart';
 
 class MyListBloc extends Bloc<MyListEvent, MyListState> {
   MyListBloc(this._listUseCase) : super(const _Loading()) {
-    _listUseCase.getFavoriteAnimes().listen((animes) {
+    _listUseCase.listenFavoriteAnimes().listen((animes) {
       add(_Update(animes));
     });
 
@@ -18,8 +18,8 @@ class MyListBloc extends Bloc<MyListEvent, MyListState> {
       await event.when(
         started: () async {
           emit(const _Loading());
-
-          emit(const _Success([]));
+          final animes = await _listUseCase.getFavoriteAnimes();
+          emit(_Success(animes));
         },
         update: (animes) async {
           emit(const _Loading());
