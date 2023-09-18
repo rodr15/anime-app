@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import '../../data/jikan/repository/anime.repository.jikan.impl.dart';
 import '../../domain/repositories/anime.repository.dart';
 import '../../domain/usecases/anime.usecase.dart';
+import '../../presentation/features/my-list/controller/my_list_bloc.bloc.dart';
 import '../../presentation/features/popular_anime/controller/popular_anime_bloc.bloc.dart';
 import '../../presentation/features/search/controller/search_bloc.bloc.dart';
 
@@ -17,7 +18,8 @@ Future<void> setupDependencies() async {
   di.registerFactory<AnimeUseCase>(() => AnimeUseCase(di()));
 
   //* Bloc
-  di.registerFactory(() => SearchBloc(di())..add(const SearchEvent.search('')));
+  di.registerFactory(() => SearchBloc(di()));
+  di.registerFactory(() => MyListBloc()..add(const MyListEvent.started()));
   di.registerFactory(
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
 }
