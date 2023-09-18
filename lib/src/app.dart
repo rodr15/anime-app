@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'presentation/features/popular_anime/popular_anime.view.dart';
-import 'presentation/features/search/search.view.dart';
+import 'configuration/routes/router.dart';
 import 'presentation/features/settings/settings_controller.dart';
-import 'presentation/features/settings/settings_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.settingsController});
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget {
     return AnimatedBuilder(
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
-        return MaterialApp(
+        return MaterialApp.router(
           restorationScopeId: 'app',
           localizationsDelegates: const [
             AppLocalizations.delegate,
@@ -33,23 +31,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: settingsController.themeMode,
-          onGenerateRoute: (RouteSettings routeSettings) {
-            return MaterialPageRoute<void>(
-              settings: routeSettings,
-              builder: (BuildContext context) {
-                switch (routeSettings.name) {
-                  case SearchView.routeName:
-                    return const SearchView();
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
-                  case PopularAnimeView.routeName:
-                    return const PopularAnimeView();
-                  default:
-                    return const PopularAnimeView();
-                }
-              },
-            );
-          },
+          routerConfig: router,
         );
       },
     );
