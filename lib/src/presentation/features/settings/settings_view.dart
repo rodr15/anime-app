@@ -20,27 +20,29 @@ class SettingsView extends StatelessWidget {
         title: const Text('Settings'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: DropdownButton<ThemeMode>(
-          value: controller.themeMode,
-          onChanged: (newTheme) =>
-              controller.add(SettingsEvent.update(newTheme)),
-          items: [
-            DropdownMenuItem(
-              value: ThemeMode.system,
-              child: Text(S.of(context)!.systemTheme),
+          padding: const EdgeInsets.all(16),
+          child: ListTile(
+            title: Text(S.of(context)!.themeModeTitle),
+            trailing: DropdownButton<ThemeMode>(
+              value: controller.themeMode,
+              onChanged: (newTheme) =>
+                  controller.add(SettingsEvent.update(newTheme)),
+              items: [
+                DropdownMenuItem(
+                  value: ThemeMode.system,
+                  child: Text(S.of(context)!.systemTheme),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.light,
+                  child: Text(S.of(context)!.lightTheme),
+                ),
+                DropdownMenuItem(
+                  value: ThemeMode.dark,
+                  child: Text(S.of(context)!.darkTheme),
+                )
+              ],
             ),
-            DropdownMenuItem(
-              value: ThemeMode.light,
-              child: Text(S.of(context)!.lightTheme),
-            ),
-            DropdownMenuItem(
-              value: ThemeMode.dark,
-              child: Text(S.of(context)!.darkTheme),
-            )
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
