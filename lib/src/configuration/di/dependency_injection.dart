@@ -45,7 +45,7 @@ Future<void> setupDependencies() async {
   //* UseCase
   di.registerFactory<AnimeUseCase>(() => AnimeUseCase(di()));
   di.registerFactory<UserListUseCase>(() => UserListUseCase(di()));
-  di.registerFactory<SettingsService>(() => SettingsService(di()));
+  di.registerFactory<SettingsUseCase>(() => SettingsUseCase(di()));
 
   //* Bloc
   di.registerFactory(() => SearchBloc(di()));

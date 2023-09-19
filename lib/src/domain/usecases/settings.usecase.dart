@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../repositories/settings.repository.dart';
 
 /// A service that stores and retrieves user settings.
-class SettingsService {
-  SettingsService(this._settingsRepository);
+class SettingsUseCase {
+  SettingsUseCase(this._settingsRepository);
 
   /// Loads the User's preferred ThemeMode from local or remote storage.
   Future<ThemeMode> themeMode() async {
-    return await _settingsRepository.getThemeMode() ?? ThemeMode.system;
+    return await _settingsRepository.getThemeMode();
   }
 
   /// Persists the user's preferred ThemeMode to local or remote storage.

@@ -29,7 +29,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       );
     });
   }
-  final SettingsService _settingsService;
+  final SettingsUseCase _settingsService;
   late ThemeMode _themeMode;
 
   ThemeMode get themeMode => _themeMode;
