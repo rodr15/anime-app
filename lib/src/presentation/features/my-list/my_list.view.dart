@@ -38,7 +38,10 @@ class _Content extends StatelessWidget {
                     subtitle: Row(
                         children: animes[index]
                             .genres
-                            .map((e) => Chip(label: Text(e.name)))
+                            .map((e) => Padding(
+                                  padding: const EdgeInsets.only(left: 3.0),
+                                  child: Chip(label: Text(e.name)),
+                                ))
                             .toList()));
               },
             ),

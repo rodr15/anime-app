@@ -8,10 +8,12 @@ import '../../data/jikan/repository/anime.repository.jikan.impl.dart';
 import '../../domain/repositories/anime.repository.dart';
 import '../../domain/repositories/user_list.repository.dart';
 import '../../domain/usecases/anime.usecase.dart';
+import '../../domain/usecases/settings_service.dart';
 import '../../domain/usecases/user_list.usecase.dart';
 import '../../presentation/features/my-list/controller/my_list_bloc.bloc.dart';
 import '../../presentation/features/popular_anime/controller/popular_anime_bloc.bloc.dart';
 import '../../presentation/features/search/controller/search_bloc.bloc.dart';
+import '../../presentation/features/settings/bloc/settings_bloc.bloc.dart';
 
 final GetIt di = GetIt.instance;
 
@@ -33,10 +35,13 @@ Future<void> setupDependencies() async {
   //* UseCase
   di.registerFactory<AnimeUseCase>(() => AnimeUseCase(di()));
   di.registerFactory<UserListUseCase>(() => UserListUseCase(di()));
+  di.registerFactory<SettingsService>(() => SettingsService());
 
   //* Bloc
   di.registerFactory(() => SearchBloc(di()));
   di.registerFactory(() => MyListBloc(di())..add(const MyListEvent.started()));
   di.registerFactory(
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
+  di.registerFactory<SettingsBloc>(
+      () => SettingsBloc(di())..add(const SettingsEvent.load()));
 }

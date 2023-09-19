@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../common/extensions/string.dart';
-import '../../../configuration/routes/routes.dart';
 
 /// Builds the "shell" for the app by building a Scaffold with a
 /// BottomNavigationBar, where [child] is placed in the body of the Scaffold.
@@ -21,17 +21,19 @@ class ScaffoldWithNavBar extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        // Here, the items of BottomNavigationBar are hard coded. In a real
-        // world scenario, the items would most likely be generated from the
-        // branches of the shell route, which can be fetched using
-        // `navigationShell.route.branches`.
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
-            label: Routes.popularAnime.capitalize(),
+            label: S.of(context)!.popularPageTitle.capitalize(),
           ),
           BottomNavigationBarItem(
-              icon: const Icon(Icons.list), label: Routes.myList.capitalize()),
+            icon: const Icon(Icons.list),
+            label: S.of(context)!.myListPageTitle.capitalize(),
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: S.of(context)!.settingsTitle.capitalize(),
+          ),
         ],
         currentIndex: navigationShell.currentIndex,
         onTap: (int index) => _onTap(context, index),

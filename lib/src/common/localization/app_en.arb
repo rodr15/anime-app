@@ -1,6 +1,30 @@
 {
-  "appTitle": "anime",
+  "appTitle": "Anime",
   "@appTitle": {
     "description": "The title of the application"
+  },
+  "darkTheme": "Dark theme",
+  "@darkTheme": {
+    "description": "dark mode active"
+  },
+  "lightTheme": "Light theme",
+  "@lightTheme": {
+    "description": "dark mode deactivate"
+  },
+  "myListPageTitle": "My List",
+  "@myListPageTitle": {
+    "description": "my List Page Title"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings Page Title"
+  },
+  "popularPageTitle": "Popular",
+  "@popularPageTitle": {
+    "description": "Popular page "
+  },
+  "systemTheme": "System theme",
+  "@systemTheme": {
+    "description": "darkMode is selected by the system preference"
   }
 }
