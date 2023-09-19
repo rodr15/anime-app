@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../domain/usecases/settings_service.dart';
+import '../../../../domain/usecases/settings.usecase.dart';
 
 part 'settings_bloc.bloc.freezed.dart';
 part 'settings_event.bloc.dart';

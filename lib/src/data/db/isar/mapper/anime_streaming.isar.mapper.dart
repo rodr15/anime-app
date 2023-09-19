@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_streaming.model.dart';
+import '../../../../domain/models/models.dart';
 import '../entity/anime_streaming.isar.entity.dart';
 
 class AnimeStreamingMapperIsar {

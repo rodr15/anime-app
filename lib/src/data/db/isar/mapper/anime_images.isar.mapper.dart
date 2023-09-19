@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_images.model.dart';
+import '../../../../domain/models/models.dart';
 import '../entity/anime_image.isar.entity.dart';
 
 class AnimeImagesMapperIsar {

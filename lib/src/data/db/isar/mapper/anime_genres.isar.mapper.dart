@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_genres.model.dart';
+import '../../../../domain/models/models.dart';
 import '../entity/anime_genres.isar.entity.dart';
 
 class AnimeGenresMapperIsar {
