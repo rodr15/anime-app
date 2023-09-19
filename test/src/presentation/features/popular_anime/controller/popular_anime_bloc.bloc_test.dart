@@ -10,18 +10,18 @@ import 'popular_anime_bloc.bloc_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<AnimeUseCase>()])
 void main() {
-  late PopularAnimeBloc searchBloc;
+  late PopularAnimeBloc popularAnimeBloc;
   late AnimeUseCase animeUseCase;
   setUp(() {
     animeUseCase = MockAnimeUseCase();
-    searchBloc = PopularAnimeBloc(animeUseCase);
+    popularAnimeBloc = PopularAnimeBloc(animeUseCase);
   });
 
   group(' 👀 Search Bloc ->  ', () {
     group('Event Search ->', () {
       blocTest<PopularAnimeBloc, PopularAnimeState>(
         'emits [Loading,Success] when search is added.',
-        build: () => searchBloc,
+        build: () => popularAnimeBloc,
         act: (bloc) => bloc.add(const PopularAnimeEvent.started()),
         expect: () => const <PopularAnimeState>[
           PopularAnimeState.loading(),
@@ -30,7 +30,7 @@ void main() {
       );
       blocTest<PopularAnimeBloc, PopularAnimeState>(
         'emits [Loading,Error] when search is added.',
-        build: () => searchBloc,
+        build: () => popularAnimeBloc,
         setUp: () {
           when(animeUseCase.getSeasonAnime())
               .thenAnswer((_) => throw RequestException.badRequest());

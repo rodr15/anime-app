@@ -19,8 +19,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         },
         update: (newThemeMode) async {
           emit(const _Loading());
-          if (newThemeMode == null) return;
-          if (newThemeMode == _themeMode) return;
+          if (newThemeMode == null) {
+            emit(const _Loaded());
+            return;
+          }
+
+          if (newThemeMode == _themeMode) {
+            emit(const _Loaded());
+            return;
+          }
           _themeMode = newThemeMode;
           emit(const _Loaded());
 

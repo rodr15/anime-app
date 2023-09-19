@@ -37,7 +37,7 @@ Para descargar y ejecutar este proyecto, siga los siguientes pasos:
 3. **Crear los archivos de ISAR y freezed**:
    
    ```shell
-    dart run packages pub run build_runner watch --delete-conflicting-outputs
+    flutter packages pub run build_runner watch --delete-conflicting-outputs
 
 4. **Crear los archivos de internacionalización:**
    
