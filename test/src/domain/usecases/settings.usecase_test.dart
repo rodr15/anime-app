@@ -41,5 +41,29 @@ void main() {
         verify(settingsRepository.setThemeMode(ThemeMode.dark)).called(1);
       });
     });
+
+    group('getLocale', () {
+      test('Should return [Locale]', () async {
+        when(settingsRepository.getLocale())
+            .thenAnswer((_) async => const Locale('es'));
+
+        final locale = await settingUseCase.locale();
+
+        expect(const Locale('es'), locale);
+      });
+      test('Throws Error ', () async {
+        when(settingsRepository.getLocale())
+            .thenAnswer((_) async => throw RequestException.notFound());
+
+        expect(() => settingUseCase.locale(), throwsException);
+      });
+    });
+    group('setLocale', () {
+      test('Call [1] repository ', () async {
+        await settingUseCase.updateLocale(const Locale('es'));
+
+        verify(settingsRepository.setLocale(const Locale('es'))).called(1);
+      });
+    });
   });
 }
