@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 
 import '../../presentation/common/widgets/scaffold_nav_bar.widget.dart';
+import '../../presentation/features/details/anime_details.view.dart';
 import '../../presentation/features/my-list/my_list.view.dart';
 import '../../presentation/features/popular_anime/popular_anime.view.dart';
 import '../../presentation/features/settings/settings_view.dart';
@@ -53,6 +54,10 @@ GoRouter router = GoRouter(
             ),
           ],
         ),
+        GoRoute(
+          path: Routes.details,
+          builder: (context, state) => const AnimeDetailsView(),
+        )
       ],
     ),
   ],

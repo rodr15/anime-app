@@ -5,4 +5,5 @@ class Routes {
   static String popularAnime = 'popular';
   static String myList = 'my-List';
   static String settings = 'settings';
+  static String details = 'details';
 }
