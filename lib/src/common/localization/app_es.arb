@@ -30,7 +30,7 @@
     },
     "systemTheme": "Tema del sistema",
     "@systemTheme": {
-      "description": "darkmode is selected by the system preference"
+      "description": "dark mode is selected by the system preference"
     },
     "themeModeTitle": "Tema",
     "@themeModeTitle": {

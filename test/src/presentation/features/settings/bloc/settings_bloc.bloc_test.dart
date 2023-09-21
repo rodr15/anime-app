@@ -26,6 +26,8 @@ void main() {
         setUp: () {
           when(settingsUseCase.themeMode())
               .thenAnswer((_) async => ThemeMode.light);
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
         },
         expect: () => const <SettingsState>[
           SettingsState.loading(),
@@ -37,16 +39,19 @@ void main() {
         },
       );
     });
-    group('Event [Update] ->', () {
+    group('Event [UpdateTheme] ->', () {
       blocTest<SettingsBloc, SettingsState>(
         'emits [Loading,Loaded,Loading,Loaded] when update is added with valid ThemeMode .',
         build: () => settingsBloc,
         setUp: () {
           when(settingsUseCase.themeMode())
               .thenAnswer((_) async => ThemeMode.system);
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
         },
-        act: (bloc) {
+        act: (bloc) async {
           bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
           bloc.add(const SettingsEvent.updateTheme(ThemeMode.light));
         },
         expect: () => const <SettingsState>[
@@ -58,7 +63,7 @@ void main() {
         verify: (bloc) {
           verify(settingsUseCase.themeMode()).called(1);
           verify(settingsUseCase.updateThemeMode(ThemeMode.light)).called(1);
-
+          verifyNever(settingsUseCase.updateLocale(const Locale('es')));
           expect(settingsBloc.themeMode, ThemeMode.light);
         },
       );
@@ -69,9 +74,12 @@ void main() {
         setUp: () {
           when(settingsUseCase.themeMode())
               .thenAnswer((_) async => ThemeMode.light);
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
         },
-        act: (bloc) {
+        act: (bloc) async {
           bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
           bloc.add(const SettingsEvent.updateTheme(ThemeMode.light));
         },
         expect: () => const <SettingsState>[
@@ -82,6 +90,7 @@ void main() {
         ],
         verify: (bloc) {
           verify(settingsUseCase.themeMode()).called(1);
+          verify(settingsUseCase.locale()).called(1);
           verifyNever(settingsUseCase.updateThemeMode(ThemeMode.light));
 
           verifyNoMoreInteractions(settingsUseCase);
@@ -95,9 +104,13 @@ void main() {
         setUp: () {
           when(settingsUseCase.themeMode())
               .thenAnswer((_) async => ThemeMode.light);
+
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
         },
-        act: (bloc) {
+        act: (bloc) async {
           bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
           bloc.add(const SettingsEvent.updateTheme(null));
         },
         expect: () => const <SettingsState>[
@@ -108,6 +121,8 @@ void main() {
         ],
         verify: (bloc) {
           verify(settingsUseCase.themeMode()).called(1);
+          verify(settingsUseCase.locale()).called(1);
+
           verifyNever(settingsUseCase.updateThemeMode(ThemeMode.light));
 
           verifyNoMoreInteractions(settingsUseCase);
