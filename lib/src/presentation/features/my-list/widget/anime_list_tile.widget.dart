@@ -45,16 +45,3 @@ class AnimeListTile extends StatelessWidget {
     );
   }
 }
-    
-    
-    // ListTile(
-    //     enabled: true,
-    //     leading: CustomNetworkImage(anime.images.small!),
-    //     title: Text(anime.title),
-    //     subtitle: Row(
-    //         children: anime.genres
-    //             .map((e) => Padding(
-    //                   padding: const EdgeInsets.only(left: 3.0),
-    //                   child: Chip(label: Text(e.name)),
-    //                 ))
-    //             .toList()));
