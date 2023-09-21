@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../configuration/di/dependency_injection.dart';
 import 'controller/my_list_bloc.bloc.dart';
-import 'widget/anime_list.widget.dart';
+import 'widget/anime_list_tile.widget.dart';
 
 class MyListView extends StatelessWidget {
   const MyListView({super.key});

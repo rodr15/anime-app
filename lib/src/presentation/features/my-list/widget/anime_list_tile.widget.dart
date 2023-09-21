@@ -12,16 +12,16 @@ class AnimeListTile extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
       width: double.infinity,
-      decoration: const BoxDecoration(
-        boxShadow: [
+      decoration: BoxDecoration(
+        boxShadow: const [
           BoxShadow(
             color: Colors.grey,
             blurRadius: 10.0,
-            offset: Offset(5, 2),
+            offset: Offset(1, 2),
           )
         ],
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        color: Theme.of(context).scaffoldBackgroundColor,
       ),
       height: 100,
       child: Row(
