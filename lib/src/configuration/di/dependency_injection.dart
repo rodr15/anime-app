@@ -48,7 +48,7 @@ Future<void> setupDependencies() async {
   di.registerFactory<SettingsUseCase>(() => SettingsUseCase(di()));
 
   //* Bloc
-  di.registerFactory(() => SearchBloc(di()));
+  di.registerSingleton(SearchBloc(di()));
   di.registerFactory(() => MyListBloc(di())..add(const MyListEvent.started()));
   di.registerFactory(
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
