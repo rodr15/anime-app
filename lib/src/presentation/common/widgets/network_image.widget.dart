@@ -10,7 +10,7 @@ class CustomNetworkImage extends StatelessWidget {
       loadingBuilder: (BuildContext context, Widget child,
           ImageChunkEvent? loadingProgress) {
         if (loadingProgress == null) return child;
-        return Expanded(
+        return SizedBox(
           child: Center(
             child: CircularProgressIndicator(
               value: loadingProgress.expectedTotalBytes != null
