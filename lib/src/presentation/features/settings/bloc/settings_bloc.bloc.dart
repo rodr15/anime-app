@@ -15,9 +15,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         load: () async {
           emit(const _Loading());
           _themeMode = await _settingsService.themeMode();
+          _locale = await _settingsService.locale();
           emit(const _Loaded());
         },
-        update: (newThemeMode) async {
+        updateTheme: (newThemeMode) async {
           emit(const _Loading());
           if (newThemeMode == null) {
             emit(const _Loaded());
@@ -33,11 +34,29 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
           await _settingsService.updateThemeMode(newThemeMode);
         },
+        updateLocale: (newLocale) async {
+          emit(const _Loading());
+          if (newLocale == null) {
+            emit(const _Loaded());
+            return;
+          }
+
+          if (newLocale == _locale) {
+            emit(const _Loaded());
+            return;
+          }
+          _locale = newLocale;
+          emit(const _Loaded());
+
+          await _settingsService.updateLocale(newLocale);
+        },
       );
     });
   }
   final SettingsUseCase _settingsService;
   late ThemeMode _themeMode;
+  late Locale _locale;
 
   ThemeMode get themeMode => _themeMode;
+  Locale get locale => _locale;
 }

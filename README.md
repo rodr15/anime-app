@@ -44,6 +44,8 @@ Para descargar y ejecutar este proyecto, siga los siguientes pasos:
    ```shell
     flutter pub run intl_utils:generate
 
+    flutter  gen-l10n
+
 5. **Analizar la aplicación:**
    ```shell
          flutter analyze

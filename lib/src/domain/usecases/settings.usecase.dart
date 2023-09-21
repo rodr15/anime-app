@@ -16,5 +16,15 @@ class SettingsUseCase {
     _settingsRepository.setThemeMode(themeMode);
   }
 
+  /// Loads the User's preferred Locale from local or remote storage.
+  Future<Locale> locale() async {
+    return await _settingsRepository.getLocale();
+  }
+
+  /// Persists the user's preferred ThemeMode to local or remote storage.
+  Future<void> updateLocale(Locale locale) async {
+    _settingsRepository.setLocale(locale);
+  }
+
   final SettingsRepository _settingsRepository;
 }

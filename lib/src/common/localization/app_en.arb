@@ -30,5 +30,9 @@
   "lightTheme": "Light theme",
   "@lightTheme": {
     "description": "dark mode deactivate"
+  },
+  "lenguajeTitle": "Language",
+  "@lenguajeTitle": {
+    "description": "Option to select the language"
   }
 }

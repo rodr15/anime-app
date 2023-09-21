@@ -47,7 +47,7 @@ void main() {
         },
         act: (bloc) {
           bloc.add(const SettingsEvent.load());
-          bloc.add(const SettingsEvent.update(ThemeMode.light));
+          bloc.add(const SettingsEvent.updateTheme(ThemeMode.light));
         },
         expect: () => const <SettingsState>[
           SettingsState.loading(),
@@ -72,7 +72,7 @@ void main() {
         },
         act: (bloc) {
           bloc.add(const SettingsEvent.load());
-          bloc.add(const SettingsEvent.update(ThemeMode.light));
+          bloc.add(const SettingsEvent.updateTheme(ThemeMode.light));
         },
         expect: () => const <SettingsState>[
           SettingsState.loading(),
@@ -98,7 +98,7 @@ void main() {
         },
         act: (bloc) {
           bloc.add(const SettingsEvent.load());
-          bloc.add(const SettingsEvent.update(null));
+          bloc.add(const SettingsEvent.updateTheme(null));
         },
         expect: () => const <SettingsState>[
           SettingsState.loading(),

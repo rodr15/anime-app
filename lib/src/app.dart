@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: S.supportedLocales,
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
+      locale: settingsController.locale,
       themeMode: settingsController.themeMode,
       routerConfig: router,
     );

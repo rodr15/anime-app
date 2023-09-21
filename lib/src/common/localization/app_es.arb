@@ -1,0 +1,39 @@
+{
+    "@@locale": "es",
+    "appTitle": "Anime",
+    "@appTitle": {
+      "description": "The title of the application"
+    },
+    "darkTheme": "Tema Oscuro",
+    "@darkTheme": {
+      "description": "dark mode active"
+    },
+    "lenguajeTitle": "Lenguaje",
+    "@lenguajeTitle": {
+      "description": "Option to select the lenguaje"
+    },
+    "lightTheme": "Tema Claro",
+    "@lightTheme": {
+      "description": "dark mode deactivate"
+    },
+    "myListPageTitle": "Mi lista",
+    "@myListPageTitle": {
+      "description": "my List Page Title"
+    },
+    "popularPageTitle": "Popular",
+    "@popularPageTitle": {
+      "description": "Popular page "
+    },
+    "settingsTitle": "Configuración",
+    "@settingsTitle": {
+      "description": "Settings Page Title"
+    },
+    "systemTheme": "Tema del sistema",
+    "@systemTheme": {
+      "description": "darkmode is selected by the system preference"
+    },
+    "themeModeTitle": "Tema",
+    "@themeModeTitle": {
+      "description": "Theme mode option title"
+    }
+  }

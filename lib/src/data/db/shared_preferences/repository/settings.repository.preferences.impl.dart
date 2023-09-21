@@ -20,4 +20,16 @@ class SettingsRepositoryPreferencesImpl implements SettingsRepository {
   void setThemeMode(ThemeMode themeMode) {
     _preferences.setInt('themeMode', themeMode.index);
   }
+
+  @override
+  Future<Locale> getLocale() async {
+    final languageCode = _preferences.getString('locale') ?? 'en';
+
+    return Locale(languageCode);
+  }
+
+  @override
+  void setLocale(Locale locale) {
+    _preferences.setString('locale', locale.languageCode);
+  }
 }
