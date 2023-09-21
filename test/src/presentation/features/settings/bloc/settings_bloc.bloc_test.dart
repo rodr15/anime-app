@@ -131,5 +131,102 @@ void main() {
         },
       );
     });
+
+    group('Event [UpdateLocale] ->', () {
+      blocTest<SettingsBloc, SettingsState>(
+        'emits [Loading,Loaded,Loading,Loaded] when update is added with valid locale .',
+        build: () => settingsBloc,
+        setUp: () {
+          when(settingsUseCase.themeMode())
+              .thenAnswer((_) async => ThemeMode.system);
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
+        },
+        act: (bloc) async {
+          bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
+          bloc.add(const SettingsEvent.updateLocale(Locale('en')));
+        },
+        expect: () => const <SettingsState>[
+          SettingsState.loading(),
+          SettingsState.loaded(),
+          SettingsState.loading(),
+          SettingsState.loaded(),
+        ],
+        verify: (bloc) {
+          verify(settingsUseCase.themeMode()).called(1);
+          verify(settingsUseCase.updateLocale(const Locale('en'))).called(1);
+          verifyNever(settingsUseCase.updateThemeMode(ThemeMode.light));
+          expect(settingsBloc.themeMode, ThemeMode.system);
+          expect(settingsBloc.locale, const Locale('en'));
+        },
+      );
+
+      blocTest<SettingsBloc, SettingsState>(
+        'emits [Loading,Loaded,Loading,Loaded] when update is added same locale.',
+        build: () => settingsBloc,
+        setUp: () {
+          when(settingsUseCase.themeMode())
+              .thenAnswer((_) async => ThemeMode.light);
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
+        },
+        act: (bloc) async {
+          bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
+          bloc.add(const SettingsEvent.updateLocale(Locale('es')));
+        },
+        expect: () => const <SettingsState>[
+          SettingsState.loading(),
+          SettingsState.loaded(),
+          SettingsState.loading(),
+          SettingsState.loaded(),
+        ],
+        verify: (bloc) {
+          verify(settingsUseCase.themeMode()).called(1);
+          verify(settingsUseCase.locale()).called(1);
+          verifyNever(settingsUseCase.updateThemeMode(ThemeMode.light));
+          verifyNever(settingsUseCase.updateLocale(const Locale('es')));
+
+          verifyNoMoreInteractions(settingsUseCase);
+
+          expect(settingsBloc.locale, const Locale('es'));
+        },
+      );
+      blocTest<SettingsBloc, SettingsState>(
+        'emits [Loading,Loaded,Loading,Loaded] when update is added null ThemeMode.',
+        build: () => settingsBloc,
+        setUp: () {
+          when(settingsUseCase.themeMode())
+              .thenAnswer((_) async => ThemeMode.light);
+
+          when(settingsUseCase.locale())
+              .thenAnswer((_) async => const Locale('es'));
+        },
+        act: (bloc) async {
+          bloc.add(const SettingsEvent.load());
+          await Future.delayed(const Duration(milliseconds: 1));
+          bloc.add(const SettingsEvent.updateLocale(null));
+        },
+        expect: () => const <SettingsState>[
+          SettingsState.loading(),
+          SettingsState.loaded(),
+          SettingsState.loading(),
+          SettingsState.loaded(),
+        ],
+        verify: (bloc) {
+          verify(settingsUseCase.themeMode()).called(1);
+          verify(settingsUseCase.locale()).called(1);
+
+          verifyNever(settingsUseCase.updateThemeMode(ThemeMode.light));
+          verifyNever(settingsUseCase.updateLocale(const Locale('es')));
+
+          verifyNoMoreInteractions(settingsUseCase);
+
+          expect(settingsBloc.themeMode, ThemeMode.light);
+          expect(settingsBloc.locale, const Locale('es'));
+        },
+      );
+    });
   });
 }
