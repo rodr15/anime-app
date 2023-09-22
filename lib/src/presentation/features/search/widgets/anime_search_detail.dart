@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../configuration/routes/routes.dart';
 import '../../../../domain/models/anime.model.dart';
 import '../../../common/widgets/network_image.widget.dart';
 
@@ -9,6 +11,7 @@ class AnimeSearchDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => context.goNamed(Routes.popularAnimeDetails, extra: anime),
       leading: SizedBox(
         height: 100,
         width: 50,
