@@ -13,6 +13,7 @@ import '../../domain/repositories/user_list.repository.dart';
 import '../../domain/usecases/anime.usecase.dart';
 import '../../domain/usecases/settings.usecase.dart';
 import '../../domain/usecases/user_list.usecase.dart';
+import '../../presentation/features/details/controller/details_bloc.bloc.dart';
 import '../../presentation/features/my-list/controller/my_list_bloc.bloc.dart';
 import '../../presentation/features/popular_anime/controller/popular_anime_bloc.bloc.dart';
 import '../../presentation/features/search/controller/search_bloc.bloc.dart';
@@ -54,4 +55,5 @@ Future<void> setupDependencies() async {
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
   di.registerFactory<SettingsBloc>(
       () => SettingsBloc(di())..add(const SettingsEvent.load()));
+  di.registerFactory<DetailsBloc>(() => DetailsBloc());
 }
