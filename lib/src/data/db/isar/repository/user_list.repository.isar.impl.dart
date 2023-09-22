@@ -27,10 +27,8 @@ class UserListIsarRepositoryImpl implements UserListRepository {
 
   @override
   void toggleInAnimeList(Anime anime) async {
-    final exists = await _isar.animeEntityIsars
-        .filter()
-        .titleEqualTo(anime.title)
-        .findAll();
+    final exists =
+        await _isar.animeEntityIsars.filter().idEqualTo(anime.id).findAll();
 
     _isar.writeTxn(() async {
       if (exists.isEmpty) {
@@ -41,5 +39,12 @@ class UserListIsarRepositoryImpl implements UserListRepository {
         await _isar.animeEntityIsars.deleteAll(animeIds);
       }
     });
+  }
+
+  @override
+  Future<bool> animeExists(int id) async {
+    final exists =
+        await _isar.animeEntityIsars.filter().idEqualTo(id).findFirst();
+    return exists != null;
   }
 }

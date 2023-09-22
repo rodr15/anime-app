@@ -13,6 +13,10 @@ class UserListUseCase {
     return _userListRepository.getAnimesFavorite();
   }
 
+  Future<bool> animeExists(int id) {
+    return _userListRepository.animeExists(id);
+  }
+
   void toggleAnimeInFavoriteList(Anime anime) {
     return _userListRepository.toggleInAnimeList(anime);
   }

@@ -55,5 +55,5 @@ Future<void> setupDependencies() async {
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
   di.registerFactory<SettingsBloc>(
       () => SettingsBloc(di())..add(const SettingsEvent.load()));
-  di.registerFactory<DetailsBloc>(() => DetailsBloc());
+  di.registerFactory<DetailsBloc>(() => DetailsBloc(di()));
 }

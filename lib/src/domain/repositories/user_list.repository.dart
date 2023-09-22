@@ -5,6 +5,8 @@ abstract interface class UserListRepository {
   Stream<List<Anime>> listenAnimesFavorite();
   Future<List<Anime>> getAnimesFavorite();
 
+  Future<bool> animeExists(int id);
+
   /// Save or delete [anime] on Favorites List depending if it exists
   void toggleInAnimeList(Anime anime);
 }
