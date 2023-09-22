@@ -37,7 +37,7 @@ GoRouter router = GoRouter(
                       path: Routes.details,
                       name: Routes.popularAnimeDetails,
                       builder: (context, state) =>
-                          AnimeDetailsView(state.extra as Anime?),
+                          AnimeDetailsView(state.extra as Anime),
                     ),
                   ],
                 ),
@@ -55,7 +55,7 @@ GoRouter router = GoRouter(
                         path: Routes.details,
                         name: Routes.myListDetails,
                         builder: (context, state) =>
-                            AnimeDetailsView(state.extra as Anime?),
+                            AnimeDetailsView(state.extra as Anime),
                       )
                     ]),
               ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../configuration/routes/routes.dart';
 import '../../../../domain/models/anime.model.dart';
 import '../../../common/widgets/network_image.widget.dart';
 
@@ -10,9 +12,12 @@ class AnimePopularView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(3),
-      child: CustomNetworkImage(anime.images.large!),
+    return GestureDetector(
+      onTap: () => context.goNamed(Routes.popularAnimeDetails, extra: anime),
+      child: Container(
+        margin: const EdgeInsets.all(3),
+        child: CustomNetworkImage(anime.images.large!),
+      ),
     );
   }
 }
