@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../configuration/di/dependency_injection.dart';
 import '../search/search.app_bar.widget.dart';
@@ -22,7 +23,7 @@ class PopularAnimeView extends StatelessWidget {
               return state.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
                 success: (animes) => PopularAnimeList(animes),
-                error: (_) => const Center(child: Text('Error')),
+                error: (_) => Center(child: Text(S.of(context)!.error(''))),
               );
             },
           )),

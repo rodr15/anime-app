@@ -62,5 +62,14 @@
         "type": "double"
       }
     }
+  },
+  "error": "Error: {error}",
+  "@error": {
+    "description": "descripción del error",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }
