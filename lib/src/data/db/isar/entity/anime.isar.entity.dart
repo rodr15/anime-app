@@ -15,7 +15,8 @@ class AnimeEntityIsar {
   int? id;
   String? title;
   String? description;
-  AnimeImageEntityIsar? images;
+  AnimeImageEntityIsar? portraitImages;
+  AnimeImageEntityIsar? landscapeImages;
   String? trailerUrl;
   int? episodes;
   String? ageRating;
@@ -30,7 +31,8 @@ class AnimeEntityIsar {
     this.id,
     this.title,
     this.description,
-    this.images,
+    this.portraitImages,
+    this.landscapeImages,
     this.trailerUrl,
     this.episodes,
     this.ageRating,

@@ -10,7 +10,10 @@ class AnimeMapperIsar {
       id: animeEntity.id!,
       title: animeEntity.title ?? '',
       description: animeEntity.description ?? '',
-      images: AnimeImagesMapperIsar.toAnimeImages(animeEntity.images!),
+      portraitImages:
+          AnimeImagesMapperIsar.toAnimeImages(animeEntity.portraitImages!),
+      landscapeImages:
+          AnimeImagesMapperIsar.toAnimeImages(animeEntity.landscapeImages!),
       episodes: animeEntity.episodes ?? 0,
       ageRating: animeEntity.ageRating ?? '',
       score: animeEntity.score ?? 0.0,
@@ -34,7 +37,8 @@ class AnimeMapperIsar {
       id: anime.id,
       title: anime.title,
       description: anime.description,
-      images: AnimeImagesMapperIsar.toEntity(anime.images),
+      portraitImages: AnimeImagesMapperIsar.toEntity(anime.portraitImages),
+      landscapeImages: AnimeImagesMapperIsar.toEntity(anime.landscapeImages),
       trailerUrl: anime.trailerUrl,
       episodes: anime.episodes,
       ageRating: anime.ageRating,

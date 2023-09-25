@@ -10,7 +10,10 @@ class AnimeMapperJikan {
       id: animeEntityJikan.id,
       title: animeEntityJikan.title ?? '',
       description: animeEntityJikan.description ?? '',
-      images: AnimeImagesMapperJikan.toAnimeImages(animeEntityJikan.images),
+      portraitImages:
+          AnimeImagesMapperJikan.toAnimeImages(animeEntityJikan.images),
+      landscapeImages:
+          AnimeImagesMapperJikan.toAnimeImages(animeEntityJikan.images),
       episodes: animeEntityJikan.episodes ?? 0,
       ageRating: animeEntityJikan.ageRating ?? '',
       score: animeEntityJikan.score ?? 0.0,
