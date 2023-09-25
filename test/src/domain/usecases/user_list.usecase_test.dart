@@ -92,5 +92,28 @@ void main() {
         verify(listRepository.toggleInAnimeList(anime1)).called(1);
       });
     });
+
+    group('animeExists ->', () {
+      test('return true', () async {
+        int id = 1;
+        when(listRepository.animeExists(id)).thenAnswer((_) async => true);
+
+        final bool exist = await userListUseCase.animeExists(id);
+
+        expect(exist, true);
+        verify(listRepository.animeExists(id)).called(1);
+        verifyNoMoreInteractions(listRepository);
+      });
+      test('return true', () async {
+        int id = 1;
+        when(listRepository.animeExists(id)).thenAnswer((_) async => false);
+
+        final bool exist = await userListUseCase.animeExists(id);
+
+        expect(exist, false);
+        verify(listRepository.animeExists(id)).called(1);
+        verifyNoMoreInteractions(listRepository);
+      });
+    });
   });
 }
