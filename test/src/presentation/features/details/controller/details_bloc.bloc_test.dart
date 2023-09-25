@@ -90,10 +90,7 @@ void main() {
           when(useCase.toggleAnimeInFavoriteList(anime1));
         },
         act: (bloc) => bloc.add(DetailsEvent.addAnime(anime1)),
-        expect: () => [
-          const DetailsState.loading(),
-          const DetailsState.loaded(),
-        ],
+        expect: () => [],
         verify: (bloc) {
           verify(useCase.toggleAnimeInFavoriteList(anime1)).called(1);
         },

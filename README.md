@@ -13,7 +13,7 @@ Este proyecto es una aplicación de anime altamente funcional y responsive que p
 - **Tema Personalizable:** Los usuarios pueden cambiar el tema de la aplicación según su preferencia.
 - **Calificaciones y Seguimiento:** Marcar animes como "Vistos" y darles calificaciones.
 - **Recomendaciones Personalizadas:** Ofrece recomendaciones de animes basadas en las interacciones y calificaciones del usuario.
-- **Responsividad:** La aplicación es responsive y accesible en varios dispositivos.
+- **Responsiva:** La aplicación es responsive y accesible en varios dispositivos.
 
 ## Objetivo del Proyecto
 
