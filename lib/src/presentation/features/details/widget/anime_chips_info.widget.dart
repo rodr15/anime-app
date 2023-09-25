@@ -10,29 +10,33 @@ class ChipsInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 10,
-      runSpacing: 4,
-      children: [
-        Chip(
-          label: Text(
-            S.of(context)!.ageRating(anime.ageRating),
-            style: Theme.of(context).textTheme.labelLarge,
+    return SizedBox(
+      width: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 5,
+        runSpacing: 0,
+        children: [
+          Chip(
+            label: Text(
+              S.of(context)!.ageRating(anime.ageRating),
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
           ),
-        ),
-        Chip(
-          label: Text(
-            S.of(context)!.episodes(anime.episodes),
-            style: Theme.of(context).textTheme.labelLarge,
+          Chip(
+            label: Text(
+              S.of(context)!.episodes(anime.episodes),
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
           ),
-        ),
-        Chip(
-          label: Text(
-            S.of(context)!.score(anime.score),
-            style: Theme.of(context).textTheme.labelLarge,
+          Chip(
+            label: Text(
+              S.of(context)!.score(anime.score),
+              style: Theme.of(context).textTheme.labelLarge,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

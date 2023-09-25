@@ -20,7 +20,7 @@ class AnimeListTile extends StatelessWidget {
         height: 100,
         child: Row(
           children: [
-            CustomNetworkImage(anime.images.small!),
+            CustomNetworkImage(anime.portraitImages.small!),
             const SizedBox(width: 10),
             Expanded(
               child: Text(

@@ -15,7 +15,7 @@ class AnimePopularView extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.goNamed(Routes.popularAnimeDetails, extra: anime),
       child: CustomNetworkImage(
-        anime.images.large!,
+        anime.portraitImages.large ?? anime.landscapeImages.large ?? '',
         boxFit: BoxFit.fill,
       ),
     );

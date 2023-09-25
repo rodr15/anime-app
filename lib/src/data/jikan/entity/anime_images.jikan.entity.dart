@@ -12,5 +12,5 @@ class AnimeImageEntityJikan with _$AnimeImageEntityJikan {
   }) = _AnimeImageEntityJikan;
 
   factory AnimeImageEntityJikan.fromJson(Map<String, dynamic> json) =>
-      _$AnimeImageEntityJikanFromJson(json['jpg'] as Map<String, dynamic>);
+      _$AnimeImageEntityJikanFromJson(json);
 }

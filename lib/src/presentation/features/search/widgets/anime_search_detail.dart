@@ -15,7 +15,7 @@ class AnimeSearchDetail extends StatelessWidget {
       leading: SizedBox(
         height: 100,
         width: 50,
-        child: CustomNetworkImage(anime.images.small!),
+        child: CustomNetworkImage(anime.portraitImages.small!),
       ),
       title: Text(anime.title),
     );
