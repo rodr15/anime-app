@@ -16,7 +16,7 @@ class AnimeDetailsMobile extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: SingleChildScrollView(child: Description(anime)),
+            child: SingleChildScrollView(child: DetailsDescription(anime)),
           ),
         ),
         const SizedBox(width: 20),
@@ -30,7 +30,7 @@ class AnimeDetailsMobile extends StatelessWidget {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Description(anime),
+            child: DetailsDescription(anime),
           ),
           const SizedBox(height: 20),
         ],

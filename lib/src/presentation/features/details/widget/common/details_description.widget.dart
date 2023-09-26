@@ -4,8 +4,8 @@ import '../../../../../domain/models/anime.model.dart';
 import 'anime_actions.widget.dart';
 import 'anime_chips_info.widget.dart';
 
-class Description extends StatelessWidget {
-  const Description(this.anime, {super.key});
+class DetailsDescription extends StatelessWidget {
+  const DetailsDescription(this.anime, {super.key});
 
   final Anime anime;
 

@@ -15,7 +15,7 @@ class AnimeDetailsTablet extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: AnimeImage(anime.portraitImages.large!),
         ),
-        Expanded(child: Description(anime))
+        Expanded(child: DetailsDescription(anime))
       ],
     );
 
@@ -26,7 +26,7 @@ class AnimeDetailsTablet extends StatelessWidget {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Description(anime),
+            child: DetailsDescription(anime),
           ),
           const SizedBox(height: 20),
         ],

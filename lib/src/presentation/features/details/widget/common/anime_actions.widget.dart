@@ -10,7 +10,7 @@ class AnimeActions extends StatelessWidget {
   final Anime anime;
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<DetailsBloc>();
+    final controller = context.watch<DetailsBloc>();
     return Row(
       children: [
         AnimatedTextIconButton(
