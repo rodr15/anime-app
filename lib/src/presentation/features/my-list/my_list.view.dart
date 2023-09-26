@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../configuration/di/dependency_injection.dart';
 import 'controller/my_list_bloc.bloc.dart';
-import 'widget/anime_list_tile.widget.dart';
+import 'widget/mobile/my_list.mobile.widget.dart';
 
 class MyListView extends StatelessWidget {
   const MyListView({super.key});
@@ -28,12 +28,7 @@ class _Content extends StatelessWidget {
         builder: (context, state) {
           return state.when(
             loading: () => const Center(child: CircularProgressIndicator()),
-            success: (animes) => ListView.builder(
-              itemCount: animes.length,
-              itemBuilder: (context, index) {
-                return AnimeListTile(animes[index]);
-              },
-            ),
+            success: (animes) => MyListMobile(animes),
             error: (_) => const Center(child: Text('Error')),
           );
         },
