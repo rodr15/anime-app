@@ -1,4 +1,4 @@
-import '../../../domain/models/anime.enums.dart';
+import '../../../../domain/models/anime/models.dart';
 
 extension AnimeTypeMap on AnimeType {
   static const valueMap = {

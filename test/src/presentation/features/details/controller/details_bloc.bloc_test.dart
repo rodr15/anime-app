@@ -1,8 +1,4 @@
-import 'package:anime/src/domain/models/anime.enums.dart';
-import 'package:anime/src/domain/models/anime.model.dart';
-import 'package:anime/src/domain/models/anime_genres.model.dart';
-import 'package:anime/src/domain/models/anime_images.model.dart';
-import 'package:anime/src/domain/models/anime_streaming.model.dart';
+import 'package:anime/src/domain/models/anime/models.dart';
 import 'package:anime/src/domain/usecases/user_list.usecase.dart';
 import 'package:anime/src/presentation/features/details/controller/details_bloc.bloc.dart';
 import 'package:bloc_test/bloc_test.dart';

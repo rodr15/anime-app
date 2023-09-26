@@ -1,5 +1,4 @@
-import '../../../domain/models/anime.model.dart';
-import '../../../domain/models/anime_images.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../entity/anime.jikan.entity.dart';
 import 'anime_genres.jikan.mapper.dart';
 import 'anime_images.jikan.mapper.dart';

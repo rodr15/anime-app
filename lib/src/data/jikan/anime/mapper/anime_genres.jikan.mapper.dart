@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_genres.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../entity/anime_genres.jikan.entity.dart';
 
 class AnimeGenresJikanMapper {

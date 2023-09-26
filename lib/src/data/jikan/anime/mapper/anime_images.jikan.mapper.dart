@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_images.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../entity/anime_images.jikan.entity.dart';
 
 class AnimeImagesMapperJikan {

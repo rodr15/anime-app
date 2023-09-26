@@ -1,4 +1,4 @@
-import '../models/anime.model.dart';
+import '../models/anime/models.dart';
 import '../repositories/anime.repository.dart';
 
 class AnimeUseCase {

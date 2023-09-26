@@ -1,4 +1,4 @@
-import '../models/anime.model.dart';
+import '../models/anime/models.dart';
 
 abstract interface class AnimeRepository {
   /// Retrieves a list of anime objects based on a search [word].

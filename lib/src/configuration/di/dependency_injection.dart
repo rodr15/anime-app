@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/db/isar/isar.export.dart';
 import '../../data/db/isar/repository/user_list.repository.isar.impl.dart';
 import '../../data/db/shared_preferences/repository/settings.repository.preferences.impl.dart';
-import '../../data/jikan/repository/anime.repository.jikan.impl.dart';
+import '../../data/jikan/anime/repository/anime.repository.jikan.impl.dart';
 import '../../domain/repositories/anime.repository.dart';
 import '../../domain/repositories/settings.repository.dart';
 import '../../domain/repositories/user_list.repository.dart';

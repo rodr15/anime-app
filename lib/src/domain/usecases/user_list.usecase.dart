@@ -1,4 +1,4 @@
-import '../models/anime.model.dart';
+import '../models/anime/models.dart';
 import '../repositories/user_list.repository.dart';
 
 class UserListUseCase {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../domain/models/anime.model.dart';
+import '../../../../../domain/models/anime/models.dart';
 import '../common/anime_image.widget.dart';
 import '../common/details_description.widget.dart';
 

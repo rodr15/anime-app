@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../domain/models/anime.model.dart';
+import '../../../../../domain/models/anime/models.dart';
 import 'anime_actions.widget.dart';
 import 'anime_chips_info.widget.dart';
 

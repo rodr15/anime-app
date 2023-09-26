@@ -1,4 +1,4 @@
-import 'package:anime/src/domain/models/models.dart';
+import 'package:anime/src/domain/models/anime/models.dart';
 import 'package:anime/src/domain/usecases/user_list.usecase.dart';
 import 'package:anime/src/presentation/features/my-list/controller/my_list_bloc.bloc.dart';
 import 'package:bloc_test/bloc_test.dart';

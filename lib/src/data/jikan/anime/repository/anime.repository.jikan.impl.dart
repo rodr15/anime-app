@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
-import '../../../common/helpers/get_request.exception.dart';
-import '../../../domain/exceptions/request.exception.dart';
-import '../../../domain/models/anime.model.dart';
-import '../../../domain/repositories/anime.repository.dart';
+import '../../../../common/helpers/get_request.exception.dart';
+import '../../../../domain/exceptions/request.exception.dart';
+import '../../../../domain/models/anime/models.dart';
+import '../../../../domain/repositories/anime.repository.dart';
 import '../entity/anime.jikan.entity.dart';
 import '../mapper/anime.jikan.entity.mapper.dart';
 

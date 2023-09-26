@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../common/extensions/responsive.dart';
-import '../../../../domain/models/anime.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import 'anime_popular.widget.dart';
 
 class PopularAnimeList extends StatelessWidget {

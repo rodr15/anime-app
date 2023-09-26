@@ -1,4 +1,4 @@
-import '../../../domain/models/anime_streaming.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../entity/anime_streaming.jikan.entity.dart';
 
 class AnimeStreamingMapperJikan {

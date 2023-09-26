@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../domain/models/anime.model.dart';
+import '../../domain/models/anime/models.dart';
 import '../../presentation/common/widgets/scaffold_nav_bar.widget.dart';
 import '../../presentation/features/details/anime_details.view.dart';
 import '../../presentation/features/my-list/my_list.view.dart';

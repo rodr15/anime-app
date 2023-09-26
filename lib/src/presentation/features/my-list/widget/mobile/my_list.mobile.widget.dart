@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../domain/models/anime.model.dart';
+import '../../../../../domain/models/anime/models.dart';
 import 'my_list.mobile.portrait.dart';
 
 class MyListMobile extends StatelessWidget {

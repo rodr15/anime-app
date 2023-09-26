@@ -1,7 +1,7 @@
 import 'package:isar/isar.dart';
 
 import '../../../../common/extensions/stream.dart';
-import '../../../../domain/models/models.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../../../../domain/repositories/user_list.repository.dart';
 import '../entity/anime.isar.entity.dart';
 import '../mapper/anime.isar.entity.mapper.dart';

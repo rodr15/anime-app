@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/models/anime.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../../../common/widgets/network_image.widget.dart';
 
 class AnimeListTile extends StatelessWidget {

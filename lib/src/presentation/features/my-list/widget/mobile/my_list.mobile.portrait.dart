@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../configuration/routes/routes.dart';
-import '../../../../../domain/models/anime.model.dart';
+import '../../../../../domain/models/anime/models.dart';
 import '../anime_list_tile.widget.dart';
 
 class MyListMobilePortrait extends StatelessWidget {

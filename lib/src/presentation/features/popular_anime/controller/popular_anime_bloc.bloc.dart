@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../domain/models/anime.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../../../../domain/usecases/anime.usecase.dart';
 
 part 'popular_anime_bloc.bloc.freezed.dart';

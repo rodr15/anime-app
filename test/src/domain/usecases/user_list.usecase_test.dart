@@ -1,5 +1,5 @@
 import 'package:anime/src/domain/exceptions/request.exception.dart';
-import 'package:anime/src/domain/models/models.dart';
+import 'package:anime/src/domain/models/anime/models.dart';
 import 'package:anime/src/domain/repositories/user_list.repository.dart';
 import 'package:anime/src/domain/usecases/user_list.usecase.dart';
 import 'package:flutter_test/flutter_test.dart';

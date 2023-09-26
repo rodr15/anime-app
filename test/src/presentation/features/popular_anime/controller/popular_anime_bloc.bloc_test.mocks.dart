@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:anime/src/domain/models/anime.model.dart' as _i4;
+import 'package:anime/src/domain/models/anime/models.dart' as _i4;
 import 'package:anime/src/domain/usecases/anime.usecase.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 

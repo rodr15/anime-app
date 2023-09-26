@@ -1,4 +1,4 @@
-import '../../../../domain/models/models.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../entity/anime.isar.entity.dart';
 import 'anime_genres.isar.mapper.dart';
 import 'anime_images.isar.mapper.dart';

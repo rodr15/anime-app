@@ -1,4 +1,4 @@
-import '../models/anime.model.dart';
+import '../models/anime/anime.model.dart';
 
 abstract interface class UserListRepository {
   /// Retrieves a stream of list of anime objects

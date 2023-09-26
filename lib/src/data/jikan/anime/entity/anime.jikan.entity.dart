@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/models/anime.enums.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../mapper/anime_status.mapper.dart';
 import '../mapper/anime_type.mapper.dart';
 import 'anime_genres.jikan.entity.dart';
