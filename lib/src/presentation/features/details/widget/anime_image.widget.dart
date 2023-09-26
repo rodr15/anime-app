@@ -9,17 +9,17 @@ class AnimeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final image = CustomNetworkImage(
-      url,
-      boxFit: BoxFit.fitWidth,
-    );
+    final image = CustomNetworkImage(url, boxFit: BoxFit.fitWidth);
+
+    final mobile = SizedBox(width: double.infinity, child: image);
+    final tablet = SizedBox(height: double.infinity, child: image);
 
     return OrientationBuilder(
       builder: (BuildContext context, Orientation orientation) {
-        if (orientation == Orientation.portrait) {
-          return SizedBox(width: double.infinity, child: image);
+        if (orientation == Orientation.landscape) {
+          return tablet;
         }
-        return SizedBox(height: double.infinity, child: image);
+        return mobile;
       },
     );
   }

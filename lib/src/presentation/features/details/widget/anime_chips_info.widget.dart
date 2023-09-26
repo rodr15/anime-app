@@ -7,35 +7,27 @@ class ChipsInfo extends StatelessWidget {
   const ChipsInfo({super.key, required this.anime});
 
   final Anime anime;
-
   @override
   Widget build(BuildContext context) {
+    final chips = [
+      S.of(context)!.ageRating(anime.ageRating),
+      S.of(context)!.episodes(anime.episodes),
+      S.of(context)!.score(anime.score),
+    ];
     return SizedBox(
       width: double.infinity,
       child: Wrap(
         alignment: WrapAlignment.center,
         spacing: 5,
         runSpacing: 0,
-        children: [
-          Chip(
-            label: Text(
-              S.of(context)!.ageRating(anime.ageRating),
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
-          Chip(
-            label: Text(
-              S.of(context)!.episodes(anime.episodes),
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
-          Chip(
-            label: Text(
-              S.of(context)!.score(anime.score),
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
-        ],
+        children: chips
+            .map((e) => Chip(
+                  label: Text(
+                    e,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                ))
+            .toList(),
       ),
     );
   }
