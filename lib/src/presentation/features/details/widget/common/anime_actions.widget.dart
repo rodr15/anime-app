@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/models/anime.model.dart';
-import '../controller/details_bloc.bloc.dart';
+import '../../../../../domain/models/anime.model.dart';
+import '../../controller/details_bloc.bloc.dart';
 import 'animated_text_icon_button.widget.dart';
 
 class AnimeActions extends StatelessWidget {

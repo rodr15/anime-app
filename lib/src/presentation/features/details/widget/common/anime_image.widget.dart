@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/widgets/network_image.widget.dart';
+import '../../../../common/widgets/network_image.widget.dart';
 
 class AnimeImage extends StatelessWidget {
   const AnimeImage(this.url, {super.key});

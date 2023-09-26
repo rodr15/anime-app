@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../domain/models/anime.model.dart';
+import '../../../../../domain/models/anime.model.dart';
 
 class ChipsInfo extends StatelessWidget {
   const ChipsInfo({super.key, required this.anime});
