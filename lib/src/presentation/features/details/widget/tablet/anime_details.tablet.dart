@@ -10,7 +10,7 @@ class AnimeDetailsTablet extends StatelessWidget {
   final Anime anime;
   @override
   Widget build(BuildContext context) {
-    return Row(
+    final landscape = Row(
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -18,6 +18,25 @@ class AnimeDetailsTablet extends StatelessWidget {
         ),
         Expanded(child: _Description(anime: anime))
       ],
+    );
+
+    final portrait = SingleChildScrollView(
+      child: Column(
+        children: [
+          AnimeImage(anime.landscapeImages.large ?? ''),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: _Description(anime: anime),
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
+    return OrientationBuilder(
+      builder: (BuildContext context, Orientation orientation) {
+        return orientation == Orientation.landscape ? landscape : portrait;
+      },
     );
   }
 }
