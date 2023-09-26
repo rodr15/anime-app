@@ -38,13 +38,19 @@ class _Content extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          loaded: () => context.responsive(
-            mobile,
-            sm: mobile,
-            md: mobile,
-            lg: tablet,
-            xl: tablet,
-          ),
+          loaded: () {
+            print(
+              context.responsive('defaultVal',
+                  sm: 'sm', md: 'md', lg: 'lg', xl: 'xl'),
+            );
+            return context.responsive(
+              mobile,
+              sm: mobile,
+              md: mobile,
+              lg: tablet,
+              xl: tablet,
+            );
+          },
         );
       },
     );
