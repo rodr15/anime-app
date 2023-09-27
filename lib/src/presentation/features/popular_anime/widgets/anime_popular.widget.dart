@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../configuration/routes/routes.dart';
-import '../../../../domain/models/anime.model.dart';
+import '../../../../domain/models/anime/models.dart';
 import '../../../common/widgets/network_image.widget.dart';
 
 class AnimePopularView extends StatelessWidget {
