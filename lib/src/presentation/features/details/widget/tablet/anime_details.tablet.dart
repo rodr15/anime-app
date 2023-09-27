@@ -17,7 +17,7 @@ class AnimeDetailsTablet extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: AnimeImage(anime.portraitImages.large!),
         ),
-        Expanded(child: DetailsDescription(anime))
+        Expanded(child: SingleChildScrollView(child: DetailsDescription(anime)))
       ],
     );
 

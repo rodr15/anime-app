@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../domain/models/anime/models.dart';
-import '../../../../../domain/models/character/character.model.dart';
-import '../../../../common/widgets/network_image.widget.dart';
 import '../../controller/details_bloc.bloc.dart';
 import '../common/anime_image.widget.dart';
 import '../common/details_description.widget.dart';
@@ -18,10 +16,10 @@ class AnimeDetailsMobile extends StatelessWidget {
       children: [
         AnimeImage(anime.portraitImages.large ?? ''),
         const SizedBox(width: 20),
-        Expanded(
+        Flexible(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: SingleChildScrollView(child: DetailsDescription(anime)),
+            child: DetailsDescription(anime),
           ),
         ),
         const SizedBox(width: 20),
@@ -38,16 +36,6 @@ class AnimeDetailsMobile extends StatelessWidget {
             child: DetailsDescription(anime),
           ),
           const SizedBox(height: 20),
-          SizedBox(
-            height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: anime.characters.length,
-              itemBuilder: (context, index) =>
-                  CharacterWidget(anime.characters[index]),
-            ),
-          ),
-          const SizedBox(height: 20),
         ],
       ),
     );
@@ -56,35 +44,6 @@ class AnimeDetailsMobile extends StatelessWidget {
       builder: (BuildContext context, Orientation orientation) {
         return orientation == Orientation.landscape ? landscape : portrait;
       },
-    );
-  }
-}
-
-class CharacterWidget extends StatelessWidget {
-  const CharacterWidget(this.character, {super.key});
-  final Character character;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        height: 200,
-        width: 100,
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Tooltip(
-                message: character.name,
-                child: CustomNetworkImage(
-                  character.imageUrl ?? '',
-                  boxFit: BoxFit.fitWidth,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
