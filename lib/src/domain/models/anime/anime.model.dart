@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../character/character.model.dart';
 import 'anime.enums.dart';
 import 'anime_genres.model.dart';
 import 'anime_images.model.dart';
@@ -23,5 +24,6 @@ class Anime with _$Anime {
     required List<AnimeStreaming> streaming,
     required AnimeStatus status,
     required AnimeType type,
+    @Default([]) List<Character> characters,
   }) = _Anime;
 }

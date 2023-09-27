@@ -3,36 +3,33 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/extensions/responsive.dart';
 import '../../../configuration/di/dependency_injection.dart';
-import '../../../domain/models/anime/models.dart';
 import 'controller/details_bloc.bloc.dart';
 import 'widget/mobile/anime_details.mobile.dart';
 import 'widget/tablet/anime_details.tablet.dart';
 
 class AnimeDetailsView extends StatelessWidget {
-  const AnimeDetailsView(this.anime, {super.key});
-  final Anime anime;
+  const AnimeDetailsView(this.animeId, {super.key});
+  final int animeId;
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: di<DetailsBloc>()..add(DetailsEvent.load(anime)),
+      value: di<DetailsBloc>()..add(DetailsEvent.load(animeId)),
       child: Scaffold(
           appBar: AppBar(),
-          body: SafeArea(
-            child: _Content(anime: anime),
+          body: const SafeArea(
+            child: _Content(),
           )),
     );
   }
 }
 
 class _Content extends StatelessWidget {
-  const _Content({required this.anime});
-
-  final Anime anime;
+  const _Content();
 
   @override
   Widget build(BuildContext context) {
-    final mobile = AnimeDetailsMobile(anime);
-    final tablet = AnimeDetailsTablet(anime);
+    const mobile = AnimeDetailsMobile();
+    const tablet = AnimeDetailsTablet();
 
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {

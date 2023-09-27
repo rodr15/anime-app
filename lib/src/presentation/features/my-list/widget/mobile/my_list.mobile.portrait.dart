@@ -15,7 +15,8 @@ class MyListMobilePortrait extends StatelessWidget {
       itemBuilder: (context, index) {
         return AnimeListTile(
           animes[index],
-          onTap: (anime) => context.goNamed(Routes.myListDetails, extra: anime),
+          onTap: (anime) =>
+              context.goNamed(Routes.myListDetails, extra: anime!.id),
         );
       },
     );

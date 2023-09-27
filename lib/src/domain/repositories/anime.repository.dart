@@ -6,4 +6,7 @@ abstract interface class AnimeRepository {
 
   /// Retrieves a list of season popular anime.
   Future<List<Anime>> getSeasonPopularAnime();
+
+  /// Retrieves an anime by [id]
+  Future<Anime> getAnimeById(int id);
 }

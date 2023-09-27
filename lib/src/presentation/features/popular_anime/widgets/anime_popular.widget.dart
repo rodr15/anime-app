@@ -13,7 +13,7 @@ class AnimePopularView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.goNamed(Routes.popularAnimeDetails, extra: anime),
+      onTap: () => context.goNamed(Routes.popularAnimeDetails, extra: anime.id),
       child: CustomNetworkImage(
         anime.portraitImages.large ?? anime.landscapeImages.large ?? '',
         boxFit: BoxFit.fill,

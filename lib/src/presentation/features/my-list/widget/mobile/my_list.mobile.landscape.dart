@@ -39,7 +39,7 @@ class _BuildLandscapeState extends State<MyListMobileLandscape> {
             },
           ),
         ),
-        Expanded(child: AnimeDetailsView(selected)),
+        Expanded(child: AnimeDetailsView(selected.id)),
       ],
     );
   }

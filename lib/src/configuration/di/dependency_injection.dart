@@ -7,7 +7,9 @@ import '../../data/db/isar/anime/repository/user_list.repository.isar.impl.dart'
 import '../../data/db/isar/isar.export.dart';
 import '../../data/db/shared_preferences/repository/settings.repository.preferences.impl.dart';
 import '../../data/jikan/anime/repository/anime.repository.jikan.impl.dart';
+import '../../data/jikan/character/repository/character.repository.jikan.impl.dart';
 import '../../domain/repositories/anime.repository.dart';
+import '../../domain/repositories/character.repository.dart';
 import '../../domain/repositories/settings.repository.dart';
 import '../../domain/repositories/user_list.repository.dart';
 import '../../domain/usecases/anime.usecase.dart';
@@ -42,9 +44,10 @@ Future<void> setupDependencies() async {
   di.registerSingleton<UserListRepository>(UserListIsarRepositoryImpl(di()));
   di.registerSingleton<SettingsRepository>(
       SettingsRepositoryPreferencesImpl(di()));
+  di.registerSingleton<CharacterRepository>(CharacterRepositoryJikanImpl());
 
   //* UseCase
-  di.registerFactory<AnimeUseCase>(() => AnimeUseCase(di()));
+  di.registerFactory<AnimeUseCase>(() => AnimeUseCase(di(), di()));
   di.registerFactory<UserListUseCase>(() => UserListUseCase(di()));
   di.registerFactory<SettingsUseCase>(() => SettingsUseCase(di()));
 
@@ -55,5 +58,5 @@ Future<void> setupDependencies() async {
       () => PopularAnimeBloc(di())..add(const PopularAnimeEvent.started()));
   di.registerFactory<SettingsBloc>(
       () => SettingsBloc(di())..add(const SettingsEvent.load()));
-  di.registerFactory<DetailsBloc>(() => DetailsBloc(di()));
+  di.registerFactory<DetailsBloc>(() => DetailsBloc(di(), di()));
 }

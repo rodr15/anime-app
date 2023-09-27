@@ -39,7 +39,7 @@ class _MyListTabletLandscape extends State<MyListTabletLandscape> {
             },
           ),
         ),
-        Expanded(child: AnimeDetailsView(selected)),
+        Expanded(child: AnimeDetailsView(selected.id)),
       ],
     );
   }

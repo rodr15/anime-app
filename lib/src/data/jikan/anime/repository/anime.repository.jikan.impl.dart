@@ -65,4 +65,29 @@ class AnimeRepositoryJikanImpl implements AnimeRepository {
       throw RequestException.unknown();
     }
   }
+
+  @override
+  Future<Anime> getAnimeById(int id) async {
+    const authority = 'api.jikan.moe';
+    final path = '/v4/anime/$id';
+
+    final uri = Uri.https(authority, path);
+    try {
+      final response = await http.get(uri);
+
+      if (response.statusCode != 200) {
+        getException(response.statusCode);
+      }
+      final Map<String, dynamic> jsonData = json.decode(response.body);
+      final data = jsonData['data'];
+
+      return AnimeMapperJikan.toAnime(AnimeEntityJikan.fromJson(data));
+    } on RequestException catch (e) {
+      Logger().e(e);
+      rethrow;
+    } catch (e) {
+      Logger().e(e);
+      throw RequestException.unknown();
+    }
+  }
 }

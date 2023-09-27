@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../domain/models/anime/models.dart';
 import '../../presentation/common/widgets/scaffold_nav_bar.widget.dart';
 import '../../presentation/features/details/anime_details.view.dart';
 import '../../presentation/features/my-list/my_list.view.dart';
@@ -37,7 +36,7 @@ GoRouter router = GoRouter(
                       path: Routes.details,
                       name: Routes.popularAnimeDetails,
                       builder: (context, state) =>
-                          AnimeDetailsView(state.extra as Anime),
+                          AnimeDetailsView(state.extra as int),
                     ),
                   ],
                 ),
@@ -55,7 +54,7 @@ GoRouter router = GoRouter(
                         path: Routes.details,
                         name: Routes.myListDetails,
                         builder: (context, state) =>
-                            AnimeDetailsView(state.extra as Anime),
+                            AnimeDetailsView(state.extra as int),
                       )
                     ]),
               ],

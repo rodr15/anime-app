@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../domain/models/anime/models.dart';
+import '../../controller/details_bloc.bloc.dart';
 import '../common/anime_image.widget.dart';
 import '../common/details_description.widget.dart';
 
 class AnimeDetailsTablet extends StatelessWidget {
-  const AnimeDetailsTablet(this.anime, {super.key});
-  final Anime anime;
+  const AnimeDetailsTablet({super.key});
   @override
   Widget build(BuildContext context) {
+    final Anime anime = context.read<DetailsBloc>().anime;
     final landscape = Row(
       children: [
         Padding(
