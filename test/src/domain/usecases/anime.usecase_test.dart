@@ -1,6 +1,7 @@
 import 'package:anime/src/domain/exceptions/request.exception.dart';
 import 'package:anime/src/domain/models/anime/models.dart';
 import 'package:anime/src/domain/repositories/anime.repository.dart';
+import 'package:anime/src/domain/repositories/character.repository.dart';
 import 'package:anime/src/domain/usecases/anime.usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -8,13 +9,16 @@ import 'package:mockito/mockito.dart';
 
 import 'anime.usecase_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<AnimeRepository>()])
+@GenerateNiceMocks(
+    [MockSpec<AnimeRepository>(), MockSpec<CharacterRepository>()])
 void main() {
   late AnimeUseCase animeUseCase;
   late AnimeRepository animeRepository;
+  late CharacterRepository characterRepository;
   setUp(() {
     animeRepository = MockAnimeRepository();
-    animeUseCase = AnimeUseCase(animeRepository);
+    characterRepository = MockCharacterRepository();
+    animeUseCase = AnimeUseCase(animeRepository, characterRepository);
   });
 
   group('👤 AnimeUseCase ->', () {

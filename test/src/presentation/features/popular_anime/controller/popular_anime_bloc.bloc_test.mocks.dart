@@ -3,10 +3,10 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:anime/src/domain/models/anime/models.dart' as _i4;
-import 'package:anime/src/domain/usecases/anime.usecase.dart' as _i2;
+import 'package:anime/src/domain/models/anime/models.dart' as _i2;
+import 'package:anime/src/domain/usecases/anime.usecase.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -20,29 +20,60 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeAnime_0 extends _i1.SmartFake implements _i2.Anime {
+  _FakeAnime_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AnimeUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAnimeUseCase extends _i1.Mock implements _i2.AnimeUseCase {
+class MockAnimeUseCase extends _i1.Mock implements _i3.AnimeUseCase {
   @override
-  _i3.Future<List<_i4.Anime>> getAnimesByWord(String? word) =>
+  _i4.Future<List<_i2.Anime>> getAnimesByWord(String? word) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAnimesByWord,
           [word],
         ),
-        returnValue: _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
+        returnValue: _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
-      ) as _i3.Future<List<_i4.Anime>>);
+            _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
+      ) as _i4.Future<List<_i2.Anime>>);
   @override
-  _i3.Future<List<_i4.Anime>> getSeasonAnime() => (super.noSuchMethod(
+  _i4.Future<List<_i2.Anime>> getSeasonAnime() => (super.noSuchMethod(
         Invocation.method(
           #getSeasonAnime,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
+        returnValue: _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
-      ) as _i3.Future<List<_i4.Anime>>);
+            _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
+      ) as _i4.Future<List<_i2.Anime>>);
+  @override
+  _i4.Future<_i2.Anime> getAnimeById(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getAnimeById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i2.Anime>.value(_FakeAnime_0(
+          this,
+          Invocation.method(
+            #getAnimeById,
+            [id],
+          ),
+        )),
+        returnValueForMissingStub: _i4.Future<_i2.Anime>.value(_FakeAnime_0(
+          this,
+          Invocation.method(
+            #getAnimeById,
+            [id],
+          ),
+        )),
+      ) as _i4.Future<_i2.Anime>);
 }

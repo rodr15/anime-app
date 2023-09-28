@@ -1,4 +1,5 @@
 import 'package:anime/src/domain/models/anime/models.dart';
+import 'package:anime/src/domain/usecases/anime.usecase.dart';
 import 'package:anime/src/domain/usecases/user_list.usecase.dart';
 import 'package:anime/src/presentation/features/details/controller/details_bloc.bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -8,10 +9,11 @@ import 'package:mockito/mockito.dart';
 
 import 'details_bloc.bloc_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<UserListUseCase>()])
+@GenerateNiceMocks([MockSpec<UserListUseCase>(), MockSpec<AnimeUseCase>()])
 void main() {
   late DetailsBloc detailsBloc;
-  late UserListUseCase useCase;
+  late UserListUseCase listUseCase;
+  late AnimeUseCase animeUseCase;
 
   const genreDrama = AnimeGenres(id: 1, name: 'Drama');
   const genreAction = AnimeGenres(id: 2, name: 'Action');
@@ -37,8 +39,9 @@ void main() {
   );
 
   setUp(() {
-    useCase = MockUserListUseCase();
-    detailsBloc = DetailsBloc(useCase);
+    listUseCase = MockUserListUseCase();
+    animeUseCase = MockAnimeUseCase();
+    detailsBloc = DetailsBloc(listUseCase, animeUseCase);
   });
 
   group(' 👀 Details Bloc ->  ', () {
@@ -47,9 +50,12 @@ void main() {
         'emits [Loading,Success] when load is added. Anime exists',
         build: () => detailsBloc,
         setUp: () {
-          when(useCase.animeExists(1)).thenAnswer((_) async => true);
+          when(listUseCase.animeExists(anime1.id))
+              .thenAnswer((_) async => true);
+          when(animeUseCase.getAnimeById(anime1.id))
+              .thenAnswer((_) async => anime1);
         },
-        act: (bloc) => bloc.add(DetailsEvent.load(anime1)),
+        act: (bloc) => bloc.add(DetailsEvent.load(anime1.id)),
         expect: () => [
           const DetailsState.loading(),
           const DetailsState.loaded(),
@@ -64,9 +70,12 @@ void main() {
         'emits [Loading,Success] when load is added. Anime not exists',
         build: () => detailsBloc,
         setUp: () {
-          when(useCase.animeExists(1)).thenAnswer((_) async => false);
+          when(listUseCase.animeExists(anime1.id))
+              .thenAnswer((_) async => false);
+          when(animeUseCase.getAnimeById(anime1.id))
+              .thenAnswer((_) async => anime1);
         },
-        act: (bloc) => bloc.add(DetailsEvent.load(anime1)),
+        act: (bloc) => bloc.add(DetailsEvent.load(anime1.id)),
         expect: () => [
           const DetailsState.loading(),
           const DetailsState.loaded(),
@@ -83,12 +92,12 @@ void main() {
         'emits [Loading,Success] when addAnime is added.',
         build: () => detailsBloc,
         setUp: () {
-          when(useCase.toggleAnimeInFavoriteList(anime1));
+          when(listUseCase.toggleAnimeInFavoriteList(anime1));
         },
         act: (bloc) => bloc.add(DetailsEvent.addAnime(anime1)),
         expect: () => [],
         verify: (bloc) {
-          verify(useCase.toggleAnimeInFavoriteList(anime1)).called(1);
+          verify(listUseCase.toggleAnimeInFavoriteList(anime1)).called(1);
         },
       );
     });

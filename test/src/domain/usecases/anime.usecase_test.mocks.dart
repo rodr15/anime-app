@@ -3,10 +3,12 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:anime/src/domain/models/anime/models.dart' as _i4;
-import 'package:anime/src/domain/repositories/anime.repository.dart' as _i2;
+import 'package:anime/src/domain/models/anime/models.dart' as _i2;
+import 'package:anime/src/domain/models/character/character.model.dart' as _i6;
+import 'package:anime/src/domain/repositories/anime.repository.dart' as _i3;
+import 'package:anime/src/domain/repositories/character.repository.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -20,29 +22,78 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeAnime_0 extends _i1.SmartFake implements _i2.Anime {
+  _FakeAnime_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AnimeRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAnimeRepository extends _i1.Mock implements _i2.AnimeRepository {
+class MockAnimeRepository extends _i1.Mock implements _i3.AnimeRepository {
   @override
-  _i3.Future<List<_i4.Anime>> getAnimesByWord(String? word) =>
+  _i4.Future<List<_i2.Anime>> getAnimesByWord(String? word) =>
       (super.noSuchMethod(
         Invocation.method(
           #getAnimesByWord,
           [word],
         ),
-        returnValue: _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
+        returnValue: _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
-      ) as _i3.Future<List<_i4.Anime>>);
+            _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
+      ) as _i4.Future<List<_i2.Anime>>);
   @override
-  _i3.Future<List<_i4.Anime>> getSeasonPopularAnime() => (super.noSuchMethod(
+  _i4.Future<List<_i2.Anime>> getSeasonPopularAnime() => (super.noSuchMethod(
         Invocation.method(
           #getSeasonPopularAnime,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
+        returnValue: _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Anime>>.value(<_i4.Anime>[]),
-      ) as _i3.Future<List<_i4.Anime>>);
+            _i4.Future<List<_i2.Anime>>.value(<_i2.Anime>[]),
+      ) as _i4.Future<List<_i2.Anime>>);
+  @override
+  _i4.Future<_i2.Anime> getAnimeById(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getAnimeById,
+          [id],
+        ),
+        returnValue: _i4.Future<_i2.Anime>.value(_FakeAnime_0(
+          this,
+          Invocation.method(
+            #getAnimeById,
+            [id],
+          ),
+        )),
+        returnValueForMissingStub: _i4.Future<_i2.Anime>.value(_FakeAnime_0(
+          this,
+          Invocation.method(
+            #getAnimeById,
+            [id],
+          ),
+        )),
+      ) as _i4.Future<_i2.Anime>);
+}
+
+/// A class which mocks [CharacterRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCharacterRepository extends _i1.Mock
+    implements _i5.CharacterRepository {
+  @override
+  _i4.Future<List<_i6.Character>> getCharactersByAnimeId(int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCharactersByAnimeId,
+          [id],
+        ),
+        returnValue: _i4.Future<List<_i6.Character>>.value(<_i6.Character>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i6.Character>>.value(<_i6.Character>[]),
+      ) as _i4.Future<List<_i6.Character>>);
 }
